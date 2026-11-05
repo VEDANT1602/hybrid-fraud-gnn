@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="385" viewBox="0 0 900 385" role="img" aria-labelledby="title desc">
+<title id="title">Synthetic fraud ranking: compare all controls</title>
+<desc id="desc">Average precision from the frozen synthetic test cohort. Values do not measure workplace outcomes.</desc>
+<rect width="900" height="385" fill="#f8fafc"/>
+<g font-family="Arial,sans-serif" fill="#18324b"><text x="25" y="34" font-size="23">Does the encoder add evidence beyond a strong tree?</text>
+<text x="25" y="60" font-size="15">1600 synthetic decisions; 126 positive outcomes; CPU experiment</text>
+<text x="25" y="108" font-size="15">engineered_graph_xgb</text>
+<rect x="235" y="85" width="400.00" height="34" fill="#64748b"/>
+<text x="645.00" y="108" font-size="15">0.1725</text>
+<text x="25" y="168" font-size="15">hybrid_xgb</text>
+<rect x="235" y="145" width="269.89" height="34" fill="#0369a1"/>
+<text x="514.89" y="168" font-size="15">0.1164</text>
+<text x="25" y="228" font-size="15">random_encoder_xgb</text>
+<rect x="235" y="205" width="341.59" height="34" fill="#64748b"/>
+<text x="586.59" y="228" font-size="15">0.1473</text>
+<text x="25" y="288" font-size="15">static_xgb</text>
+<rect x="235" y="265" width="262.64" height="34" fill="#64748b"/>
+<text x="507.64" y="288" font-size="15">0.1133</text>
+<text x="25" y="362" font-size="14">Average precision; one fixed generator/training seed; no real-world capture or GPU claim.</text></g></svg>

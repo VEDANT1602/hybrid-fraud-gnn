@@ -1,0 +1,337 @@
+{
+  "config": {
+    "encoder_device": "cpu",
+    "epochs": 50,
+    "graph_cutoff": "midnight_before_decision_day",
+    "graph_window_days": 7,
+    "model_selection": "fixed config; no validation/test tuning",
+    "per_day": 80,
+    "review_fraction": 0.05,
+    "seed": 53,
+    "test_label_asof": 75,
+    "train_label_asof": 35,
+    "tree_device": "cpu",
+    "tree_parameters": {
+      "colsample_bytree": 1.0,
+      "device": "cpu",
+      "eval_metric": "logloss",
+      "learning_rate": 0.05,
+      "max_depth": 3,
+      "min_child_weight": 8,
+      "n_estimators": 180,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 53,
+      "reg_lambda": 4.0,
+      "subsample": 1.0,
+      "tree_method": "hist"
+    },
+    "validation_label_asof": 50
+  },
+  "dataset": {
+    "csv_sha256": "16ea30793865b5ca65aac16fdd273f0c655f49d6dbc7c5dcb68580d3f5535482",
+    "gzip_sha256": "9eaf372ba86e2d052a627a0774945e8e27483d9881c1f347c3dc96f6b6cfce8a",
+    "profiles_sha256": "77c33ec3bf0c4067e2e61666166fd51085c165488e5579ae14a5fa728f527e7e",
+    "rows": 4800
+  },
+  "encoder_training": {
+    "device": "cpu",
+    "encoder_parameter_l1_change": 46.7740159034729,
+    "epochs": 50,
+    "losses": [
+      1.2612099647521973,
+      1.2571970224380493,
+      1.2556513547897339,
+      1.2545311450958252,
+      1.253383994102478,
+      1.2521768808364868,
+      1.2510311603546143,
+      1.249733805656433,
+      1.2482596635818481,
+      1.2464797496795654,
+      1.2444796562194824,
+      1.242045283317566,
+      1.2389498949050903,
+      1.2348339557647705,
+      1.2289999723434448,
+      1.2224669456481934,
+      1.217712640762329,
+      1.2162017822265625,
+      1.2204530239105225,
+      1.2254756689071655,
+      1.2273012399673462,
+      1.2277206182479858,
+      1.2268646955490112,
+      1.2180410623550415,
+      1.207110047340393,
+      1.1932379007339478,
+      1.181889533996582,
+      1.1856565475463867,
+      1.1873722076416016,
+      1.169838786125183,
+      1.1846168041229248,
+      1.2016485929489136,
+      1.1778618097305298,
+      1.1808055639266968,
+      1.1781549453735352,
+      1.1657220125198364,
+      1.1635421514511108,
+      1.167054295539856,
+      1.1495519876480103,
+      1.1404463052749634,
+      1.137294888496399,
+      1.134839653968811,
+      1.1236590147018433,
+      1.1098628044128418,
+      1.1085423231124878,
+      1.1179027557373047,
+      1.1220636367797852,
+      1.1280732154846191,
+      1.1235617399215698,
+      1.143984317779541
+    ],
+    "trainable_encoder_parameters": 800,
+    "training_positives": 227,
+    "training_rows": 2400,
+    "training_seconds": 4.133445999992546
+  },
+  "features": {
+    "engineered_graph": [
+      "customer_degree",
+      "device_degree",
+      "device_events",
+      "device_mean_profile",
+      "customer_mean_device_degree",
+      "device_mean_amount"
+    ],
+    "hybrid_embedding_dimensions": 16,
+    "static": [
+      "log_amount",
+      "country_changed",
+      "mobile",
+      "profile_score",
+      "log_account_age",
+      "sin_time",
+      "cos_time",
+      "customer_prior_events",
+      "customer_prior_mean_amount"
+    ]
+  },
+  "model_sha256": {
+    "encoder.pt": "a63df354ceae94a7c24ea3d77b68dc013289861021f15f93c82a8f1a8ce8093c",
+    "engineered_graph_xgb.json": "78a9879ddc64d959503d221844270d5145eee05e5098fb8a2092734414530182",
+    "hybrid_xgb.json": "8dff0398e7d8f6e6e213b2a0aaf0e4491e21a4022085ae6bf7ec318879b6d3ec",
+    "random_encoder_xgb.json": "c8cfdc4e74ec73a732a131010ddbc7c954f3e6491a9b1cc02b0c3eb465db9cae",
+    "static_xgb.json": "7bfb31bba720853496aa69c633b8b64a62d437b9a16201a084d5c7097d296aba"
+  },
+  "paired_day_interval": {
+    "draws": 200,
+    "lower": -0.008961091403846723,
+    "metric": "hybrid_minus_static_average_precision",
+    "resampling": "paired test-day blocks of frozen predictions; cross-day entities remain dependent",
+    "upper": 0.016562069985947014,
+    "valid_draws": 200
+  },
+  "predictions_sha256": "35a72dc6b4108e3a32bc3e07847a5e02291eb1f4e8232a946da6f0afd420ec9d",
+  "runtime": {
+    "cuda_available": false,
+    "machine": "AMD64",
+    "numpy": "1.26.0",
+    "processor": "Intel64 Family 6 Model 78 Stepping 3, GenuineIntel",
+    "python": "3.11.9",
+    "sklearn": "1.3.0",
+    "torch": "2.9.1+cpu",
+    "xgboost": "3.1.2"
+  },
+  "schema_version": 1,
+  "scope": "original_synthetic_inductive_GNN_plus_actual_XGBoost; no workplace validation",
+  "slices": {
+    "original_mechanism": {
+      "engineered_graph_xgb": {
+        "actual_review_fraction": 0.05,
+        "average_precision": 0.23154456570950446,
+        "positive_reviews": 12,
+        "positives": 85,
+        "precision_at_capacity": 0.3,
+        "recall_at_capacity": 0.1411764705882353,
+        "reviews": 40,
+        "rows": 800
+      },
+      "hybrid_xgb": {
+        "actual_review_fraction": 0.05,
+        "average_precision": 0.1776699413409465,
+        "positive_reviews": 6,
+        "positives": 85,
+        "precision_at_capacity": 0.15,
+        "recall_at_capacity": 0.07058823529411765,
+        "reviews": 40,
+        "rows": 800
+      },
+      "random_encoder_xgb": {
+        "actual_review_fraction": 0.05,
+        "average_precision": 0.1936959594487662,
+        "positive_reviews": 10,
+        "positives": 85,
+        "precision_at_capacity": 0.25,
+        "recall_at_capacity": 0.11764705882352941,
+        "reviews": 40,
+        "rows": 800
+      },
+      "static_xgb": {
+        "actual_review_fraction": 0.05,
+        "average_precision": 0.1727439966566363,
+        "positive_reviews": 7,
+        "positives": 85,
+        "precision_at_capacity": 0.175,
+        "recall_at_capacity": 0.08235294117647059,
+        "reviews": 40,
+        "rows": 800
+      }
+    },
+    "shifted_mechanism": {
+      "engineered_graph_xgb": {
+        "actual_review_fraction": 0.05,
+        "average_precision": 0.10307783665820086,
+        "positive_reviews": 7,
+        "positives": 41,
+        "precision_at_capacity": 0.175,
+        "recall_at_capacity": 0.17073170731707318,
+        "reviews": 40,
+        "rows": 800
+      },
+      "hybrid_xgb": {
+        "actual_review_fraction": 0.05,
+        "average_precision": 0.07477222950436542,
+        "positive_reviews": 4,
+        "positives": 41,
+        "precision_at_capacity": 0.1,
+        "recall_at_capacity": 0.0975609756097561,
+        "reviews": 40,
+        "rows": 800
+      },
+      "random_encoder_xgb": {
+        "actual_review_fraction": 0.05,
+        "average_precision": 0.09383877783792191,
+        "positive_reviews": 6,
+        "positives": 41,
+        "precision_at_capacity": 0.15,
+        "recall_at_capacity": 0.14634146341463414,
+        "reviews": 40,
+        "rows": 800
+      },
+      "static_xgb": {
+        "actual_review_fraction": 0.05,
+        "average_precision": 0.07253183614304429,
+        "positive_reviews": 0,
+        "positives": 41,
+        "precision_at_capacity": 0.0,
+        "recall_at_capacity": 0.0,
+        "reviews": 40,
+        "rows": 800
+      }
+    }
+  },
+  "source_sha256": {
+    "hybrid_fraud/__init__.py": "0415cef8eb2f04fd1101ce07fd001222f41fdcb544db8a2f6852c50b66a9b4cf",
+    "hybrid_fraud/__main__.py": "b41e5b3e76d49d32d1cbf1fcd27912064d1af14c1dd3a861081507b2e4f89f9f",
+    "hybrid_fraud/audit.py": "5709c84f153af1ee9401a63cc6c6bb72faee40b25617f4aef44d5151943fc470",
+    "hybrid_fraud/data.py": "6c411450692f5bf0df06901a9c3718b1d4636b5430d7317ec7d485d6bf7bdcb3",
+    "hybrid_fraud/experiment.py": "9a67f9696ec8a09406b432996152683ea2cf533bc14ce218171f4ac57cb967af",
+    "hybrid_fraud/features.py": "595623bdceedbe8b7cef9c226383fb516f3b5acec7703dc9ebefc5c9ed09dba9",
+    "hybrid_fraud/metrics.py": "29e90c7ee027a3dd54968414ee7b7f2bf2731ca2e4b0cc74318a7c4479335579",
+    "hybrid_fraud/model.py": "a45e1bf5fa7c06efb2647c9752fd6deb7a2a1c2747c6f58244e9ff76ba7d7578",
+    "hybrid_fraud/report.py": "bf6ccdd99a6daaaad3476e29efeb574c757d46d6b39e09b06d0ef8e94cc0b6d6",
+    "tests/test_contracts.py": "5850276e48a4fbd4bd02fbf6d64492ff78793afc201d54b20a8cb9c8f96e7a1b"
+  },
+  "test": {
+    "engineered_graph_xgb": {
+      "actual_review_fraction": 0.05,
+      "average_precision": 0.17251888375991623,
+      "positive_reviews": 19,
+      "positives": 126,
+      "precision_at_capacity": 0.2375,
+      "recall_at_capacity": 0.15079365079365079,
+      "reviews": 80,
+      "rows": 1600
+    },
+    "hybrid_xgb": {
+      "actual_review_fraction": 0.05,
+      "average_precision": 0.11640186705062527,
+      "positive_reviews": 10,
+      "positives": 126,
+      "precision_at_capacity": 0.125,
+      "recall_at_capacity": 0.07936507936507936,
+      "reviews": 80,
+      "rows": 1600
+    },
+    "random_encoder_xgb": {
+      "actual_review_fraction": 0.05,
+      "average_precision": 0.14732598689497076,
+      "positive_reviews": 16,
+      "positives": 126,
+      "precision_at_capacity": 0.2,
+      "recall_at_capacity": 0.12698412698412698,
+      "reviews": 80,
+      "rows": 1600
+    },
+    "static_xgb": {
+      "actual_review_fraction": 0.05,
+      "average_precision": 0.1132745200011383,
+      "positive_reviews": 7,
+      "positives": 126,
+      "precision_at_capacity": 0.0875,
+      "recall_at_capacity": 0.05555555555555555,
+      "reviews": 80,
+      "rows": 1600
+    }
+  },
+  "total_seconds": 12.899285199993756,
+  "tree_fit_seconds": {
+    "engineered_graph_xgb": 0.12488329998450354,
+    "hybrid_xgb": 0.12392140002339147,
+    "random_encoder_xgb": 0.17927970000891946,
+    "static_xgb": 0.09248349998961203
+  },
+  "validation": {
+    "engineered_graph_xgb": {
+      "actual_review_fraction": 0.05,
+      "average_precision": 0.2655927303709573,
+      "positive_reviews": 8,
+      "positives": 72,
+      "precision_at_capacity": 0.2,
+      "recall_at_capacity": 0.1111111111111111,
+      "reviews": 40,
+      "rows": 800
+    },
+    "hybrid_xgb": {
+      "actual_review_fraction": 0.05,
+      "average_precision": 0.2059727670885068,
+      "positive_reviews": 8,
+      "positives": 72,
+      "precision_at_capacity": 0.2,
+      "recall_at_capacity": 0.1111111111111111,
+      "reviews": 40,
+      "rows": 800
+    },
+    "random_encoder_xgb": {
+      "actual_review_fraction": 0.05,
+      "average_precision": 0.1675688851316201,
+      "positive_reviews": 8,
+      "positives": 72,
+      "precision_at_capacity": 0.2,
+      "recall_at_capacity": 0.1111111111111111,
+      "reviews": 40,
+      "rows": 800
+    },
+    "static_xgb": {
+      "actual_review_fraction": 0.05,
+      "average_precision": 0.13030150062223447,
+      "positive_reviews": 3,
+      "positives": 72,
+      "precision_at_capacity": 0.075,
+      "recall_at_capacity": 0.041666666666666664,
+      "reviews": 40,
+      "rows": 800
+    }
+  }
+}
