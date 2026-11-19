@@ -1,6 +1,6 @@
 # Hybrid Fraud GNN | Vedant Thaker
 
-At the same 80-review budget, ordinary graph statistics surfaced 19 positives on the synthetic holdout. The learned encoder surfaced 10 and the transaction-only model found 7. That comparison is why the simpler graph features are the candidate worth testing next. [Per-model results](results/case-study.md) · [Held-out predictions](results/predictions.csv)
+At the same 80-review budget, XGBoost with engineered graph statistics surfaced 19 positives on the synthetic holdout. With learned graph embeddings it surfaced 10, and with static features alone it found 7. That comparison is why the simpler graph features are the candidate worth testing next. [Per-model results](results/case-study.md) · [Held-out predictions](results/predictions.csv)
 
 There is one clock for every model. At midnight, the graph closes over the previous seven days of customer/device observations. A transaction later that day cannot add an edge to its own features. The test cohort also uses previously unseen identities. These choices matter when ordinary customers can share a device just as coordinated accounts can.
 
