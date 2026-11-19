@@ -1,8 +1,8 @@
 # Hybrid Fraud GNN | Vedant Thaker
 
-At the same 80-review budget, XGBoost with engineered graph statistics surfaced 19 positives on the synthetic holdout. With learned graph embeddings it surfaced 10, and with static features alone it found 7. That comparison is why the simpler graph features are the candidate worth testing next. [Per-model results](results/case-study.md) · [Held-out predictions](results/predictions.csv)
+A shared device could belong to coordinated accounts or to customers using the same public terminal. Does a learned embedding help decide which transactions deserve a closer look? In this synthetic test, the comparison includes a useful control. XGBoost with an untrained encoder found 16 positives in 80 reviews. With the trained encoder it found 10. Simple graph statistics found 19. [Held-out predictions](results/predictions.csv) · [Model comparison](results/case-study.md)
 
-There is one clock for every model. At midnight, the graph closes over the previous seven days of customer/device observations. A transaction later that day cannot add an edge to its own features. The test cohort also uses previously unseen identities. These choices matter when ordinary customers can share a device just as coordinated accounts can.
+Each model gets the same view of time. The graph freezes at midnight using the previous seven days of observations. A transaction cannot contribute an edge to its own graph features, and test customers and devices are new to the model.
 
 ## What the four models receive
 
@@ -41,7 +41,7 @@ On the frozen **1,600-decision** test cohort with **126 positives** and the same
 | Static + untrained encoder | 0.1473 | 16 |
 | Static + trained graph encoder | 0.1164 | 10 |
 
-The trained hybrid adds three positive reviews over static trees, but loses nine against engineered graph statistics. Its AP difference from static has a descriptive interval of **[-0.0090, 0.0166]**. This run does **not** justify adding the learned encoder. I would carry the simpler graph-statistics candidate into a representative shadow evaluation and keep the static model as the operational reference.
+The ranking also matters after the simulated mechanism changes. In that half of the test, the static model found no positives in 40 reviews. Engineered graph statistics found seven and learned embeddings found four. Those are counts on one synthetic seed. Whether the simpler candidate keeps its advantage on a different population is still open. [Results by period](results/metrics.json)
 
 ## Run locally without spending
 
