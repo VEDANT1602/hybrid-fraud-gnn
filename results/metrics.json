@@ -93,7 +93,7 @@
     "trainable_encoder_parameters": 800,
     "training_positives": 227,
     "training_rows": 2400,
-    "training_seconds": 4.133445999992546
+    "training_seconds": 6.546312599995872
   },
   "features": {
     "engineered_graph": [
@@ -240,7 +240,7 @@
     "hybrid_fraud/features.py": "595623bdceedbe8b7cef9c226383fb516f3b5acec7703dc9ebefc5c9ed09dba9",
     "hybrid_fraud/metrics.py": "29e90c7ee027a3dd54968414ee7b7f2bf2731ca2e4b0cc74318a7c4479335579",
     "hybrid_fraud/model.py": "a45e1bf5fa7c06efb2647c9752fd6deb7a2a1c2747c6f58244e9ff76ba7d7578",
-    "hybrid_fraud/report.py": "bf6ccdd99a6daaaad3476e29efeb574c757d46d6b39e09b06d0ef8e94cc0b6d6",
+    "hybrid_fraud/report.py": "a6325dfba850763138eec268a7954a538d698caa0633695be39e19d201d01e34",
     "tests/test_contracts.py": "5850276e48a4fbd4bd02fbf6d64492ff78793afc201d54b20a8cb9c8f96e7a1b"
   },
   "test": {
@@ -285,12 +285,12 @@
       "rows": 1600
     }
   },
-  "total_seconds": 12.899285199993756,
+  "total_seconds": 19.594239600002766,
   "tree_fit_seconds": {
-    "engineered_graph_xgb": 0.12488329998450354,
-    "hybrid_xgb": 0.12392140002339147,
-    "random_encoder_xgb": 0.17927970000891946,
-    "static_xgb": 0.09248349998961203
+    "engineered_graph_xgb": 0.12656820000847802,
+    "hybrid_xgb": 0.11167199999908917,
+    "random_encoder_xgb": 0.22329660000104923,
+    "static_xgb": 0.09607949999917764
   },
   "validation": {
     "engineered_graph_xgb": {

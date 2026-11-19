@@ -1,14 +1,10 @@
 # Hybrid Fraud GNN | Vedant Thaker
 
-**Can learned graph context earn another training stage when a useful tree model already exists?**
+At the same 80-review budget, ordinary graph statistics surfaced 19 positives on the synthetic holdout. The learned encoder surfaced 10 and the transaction-only model found 7. That comparison is why the simpler graph features are the candidate worth testing next. [Per-model results](results/case-study.md) · [Held-out predictions](results/predictions.csv)
 
-I built a trainable, inductive PyTorch graph encoder and an actual XGBoost fraud-ranking comparison. The problem is narrower than choosing a fashionable model: shared hardware can connect coordinated accounts, but it can also connect ordinary customers using a public terminal. I want to know which extra information improves the same analyst queue, under the same availability rules.
+There is one clock for every model. At midnight, the graph closes over the previous seven days of customer/device observations. A transaction later that day cannot add an edge to its own features. The test cohort also uses previously unseen identities. These choices matter when ordinary customers can share a device just as coordinated accounts can.
 
-## Start with the failure that is easy to miss
-
-A transaction tree sees the request and its own history. A graph can add the surrounding accounts and devices. If that graph includes activity that arrived after the decision, a better offline score can be an information leak. I freeze the graph at midnight, use only the previous seven days, and evaluate on later populations with entirely new identities.
-
-## The framework I implemented
+## What the four models receive
 
 ```text
 prior seven days of customer/device observations    current transaction
